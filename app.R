@@ -70,7 +70,7 @@ ui <- fluidPage(
   tags$style(HTML(".tabbable > .nav > li[class=active]    > a {background-color: #0094c5; color:white}")),
   
   # Application title
-   titlePanel("PsychTopics"), #v1.0.0
+   titlePanel("PsychTopics"), #v1.0.1
   
      # Sidebar
    sidebarLayout(
@@ -111,8 +111,9 @@ ui <- fluidPage(
        br(),
        br(),
        helpText(br(),
-                p("The psychological research topics from the German-speaking countries were identified using",
-                a("Topic Modeling.", href = "https://doi.org/10.1027/2151-2604/a000318", target = "_blank")),
+                p("The psychological research topics from the German-speaking countries were identified automatically using",
+                a("Topic Modeling.", href = "http://dx.doi.org/10.23668/psycharchives.2521", target = "_blank"), 
+                strong("Conclusions should be drawn carefully.")),
                 #br(),
                 p("The topics consist of",  a("standardized keywords", 
                                               href = "https://www.psyndex.de/index.php?wahl=products&uwahl=printed&uuwahl=psyndexterms&lang=EN", 
@@ -231,10 +232,15 @@ server <- function(input, output, session) {
   # shiny alert: https://deanattali.com/blog/shinyalert-package/
   
   popup <- shinyalert(html = TRUE, title = "<h2 style='color:#333b8f'>Explore topics and trends in psychology</h3>",
-                      text = "The topics were derived automatically from PSYNDEX.
-                      <br><br>By clicking the button
-                      <font color='#333b8f'><b>Search PSYNDEX</b></font>,
-                      you can find relevant literature for each topic.
+                      text = "The topics were derived <i>automatically</i> from PSYNDEX records 
+                      using machine learning algorithms. <br>Thus, conclusions should be drawn carefully.
+                      
+                      <br><br>Each topic is characterized by five terms. To better interpret a topic, you can check
+                      relevant literature by clicking the button
+                      <font color='#333b8f'><b>Search PSYNDEX</b></font>.
+                      
+                      
+                      
                       <br><br><br><br><font size='-1'>Service provided by:</font><br>
                       <img src = 'logo.png' width = 50% height = 50%>
                       <br><br>", 

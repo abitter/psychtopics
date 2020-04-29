@@ -70,7 +70,7 @@ ui <- fluidPage(
   tags$style(HTML(".tabbable > .nav > li[class=active]    > a {background-color: #0094c5; color:white}")),
   
   # Application title
-   titlePanel("PsychTopics"), #v1.0.2   22.01.2020
+   titlePanel("PsychTopics"), #v1.0.3   29.04.2020
   
      # Sidebar
    sidebarLayout(
@@ -231,19 +231,28 @@ server <- function(input, output, session) {
   # modal pop up: https://stackoverflow.com/questions/50326110/r-shiny-popup-window-before-app
   # shiny alert: https://deanattali.com/blog/shinyalert-package/
   
-  popup <- shinyalert(html = TRUE, title = "<h2 style='color:#333b8f'>Explore topics and trends in psychology</h3>",
-                      text = "The topics were derived <i>automatically</i> from PSYNDEX records 
-                      using machine learning algorithms. <br>Thus, conclusions should be drawn carefully.
+  popup <- shinyalert(html = TRUE, 
                       
-                      <br><br>Each topic is characterized by five terms. To better interpret a topic, you can check
-                      relevant literature by clicking the button
-                      <font color='#333b8f'><b>Search PSYNDEX</b></font>.
+                      # HTML improvements by ttr@leibniz-psychology.org
                       
-                      
-                      
-                      <br><br><br><br><font size='-1'>Service provided by:</font><br>
-                      <img src = 'logo.png' width = 50% height = 50%>
-                      <br><br>", 
+                      title = '<h1 style="color: #333b8f; margin-top: 2rem; text-align:center; font-weight: bold; font-size: 24px; line-height: 1.2">
+                      Explore topics and trends in psychology
+                      </h1>',
+                        
+                        text = 
+                        '<div style="margin: 2rem; color: #333333; text-align:left;">
+                        <p style="font-size:18px; line-height:1.45">
+                        The topics were derived <strong>automatically</strong> from PSYNDEX records using machine learning algorithms.
+                        </p>
+                        
+                        <p style="color: #333b8f; margin-top: 1rem; font-size:18px; line-height:1.45">
+                        <strong>Thus, conclusions should be drawn carefully.</strong>
+                        </p>
+                        <p style="margin-top: 1rem; font-size:18px; line-height:1.45">
+                        Each topic is characterized by five terms. To better interpret a topic, you can check relevant literature by clicking the button <strong>Search PSYNDEX</strong>.
+                        </p>
+                        </div>',
+                  
                       type = "", animation = TRUE, confirmButtonCol = "#333b8f", closeOnClickOutside = TRUE)
   
   showModal(popup) 

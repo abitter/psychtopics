@@ -422,9 +422,12 @@ server <- function(input, output, session) {
   output$eventplot <- renderPlot({
     inp <- topic[(grepl(search_lower2(), topic$Thema)),][select_event(), 1]
     window <- window(theta_mean_by_year_ts[, inp], start = 1980, end = finalInput())
-    mlp <- plotXY(1:length(window), window, complexity = 2)
-    mlp_ts <- ts(mlp$prediction, start = 1980)
-    forecast <- forecast(mlp_ts*100, h = length(theta_mean_by_year_ts[, inp]*100) - length(window))
+    
+    #mlp <- plotXY(1:length(window), window, complexity = 2)
+    #mlp_ts <- ts(mlp$prediction, start = 1980)
+    #forecast <- forecast(mlp_ts*100, h = length(theta_mean_by_year_ts[, inp]*100) - length(window))
+    
+    forecast <- forecast(window*100, h = length(theta_mean_by_year_ts[, inp]*100) - length(window))
     plot(forecast, ylim = c(0, max(theta_mean_by_year_ts[,inp]*100)), showgap = FALSE, PI = TRUE,
          main = list(paste("Observed and expected trend of Topic", inp), cex = 1.25), # remove main to see method
          col = col_bars, fcol = "#83227a")

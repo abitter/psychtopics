@@ -70,7 +70,7 @@ ui <- fluidPage(
   tags$style(HTML(".tabbable > .nav > li[class=active]    > a {background-color: #0094c5; color:white}")),
   
   # Application title
-   titlePanel("PsychTopics"), #v1.0.5   14.07.2020
+   titlePanel("PsychTopics"), #v1.0.5.2   21.10.2020
   
      # Sidebar
    sidebarLayout(
@@ -116,9 +116,9 @@ ui <- fluidPage(
                 strong("Conclusions should be drawn carefully.")),
                 #br(),
                 p("The topics consist of",  a("standardized keywords", 
-                                              href = "https://www.psyndex.de/index.php?wahl=products&uwahl=printed&uuwahl=psyndexterms&lang=EN", 
+                                              href = "https://www.psyndex.de/ueber/inhalte-aufbau/schlagwoerter-klassifikationen/#schlagw%C3%B6rter-psyndex-terms", 
                                               target="_blank"), "of the psychological reference database",
-                  a("PSYNDEX.", href = "https://www.psyndex.de/index.php?wahl=PSYNDEX&uwahl=Angebot&lang=EN", target = "_blank"))
+                  a("PSYNDEX.", href = "https://www.psyndex.de/ueber/steckbrief/", target = "_blank"))
                 ),
        helpText("Topic", strong(em("prevalence")), "is the mean topic probability in the corpus of publications (in percent)."),
        br(),

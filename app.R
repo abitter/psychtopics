@@ -70,7 +70,7 @@ ui <- fluidPage(
   tags$style(HTML(".tabbable > .nav > li[class=active]    > a {background-color: #0094c5; color:white}")),
   
   # Application title
-   titlePanel("PsychTopics"), #v1.0.5.2   21.10.2020
+   titlePanel("PsychTopics"), #v1.0.6   30.12.2020
   
      # Sidebar
    sidebarLayout(
@@ -103,7 +103,7 @@ ui <- fluidPage(
                     label = h4("Set range of publication years:"),
                     min = 1980,
                     max = as.numeric(years[length(years)]),
-                    value = c(1980, as.numeric(years[length(years)])),
+                    value = c(2015, as.numeric(years[length(years)])),
                     sep = "",
                     ticks = FALSE),
        
@@ -279,7 +279,7 @@ server <- function(input, output, session) {
   # transform invalid year input (popular topics)
   finalInputPop <- reactive({
     if (input$yearpop < 1980) return(1980)
-    if (input$yearpop > 2018) return(2018)
+    if (input$yearpop > 2019) return(2019)
     input$yearpop
   })
   

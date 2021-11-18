@@ -7,7 +7,7 @@
 # This app displays research topics in psychology
 # identified using topic modeling of PSYNDEX data
 #    
-# Reference: Bittermann (2019). Development of a user-friendly app for exploring and analyzing research topics in psychology. 
+# Reference: Bittermann (2020). Development of a user-friendly app for exploring and analyzing research topics in psychology. 
 # In G. Catalano, C. Daraio, M. Gregori, H. F. Moed & G. Ruocco (Hrsg.), Proceedings of the 17th Conference of the 
 # International Society for Scientometrics and Informetrics (2634–2635). Rom: Edizioni Efesto. 
 # http://dx.doi.org/10.23668/psycharchives.2521
@@ -66,11 +66,11 @@ ui <- fluidPage(
   # color of selected row; https://www.w3schools.com/colors/colors_names.asp
   tags$style(HTML('table.dataTable tbody tr.selected td, table.dataTable td.selected{background-color:gold !important;}')),
   
-  # Tab color; https://stackoverflow.com/questions/35025145/background-color-of-tabs-in-shiny-tabpanel/43201952#43201952
+  # Tab color; https://stackoverflow.com/questions/35025145/background-color-of-tabs-in-shiny-tabpanel/43202052#43202052
   tags$style(HTML(".tabbable > .nav > li[class=active]    > a {background-color: #0094c5; color:white}")),
   
   # Application title
-   titlePanel("PsychTopics"), #v1.0.6   30.12.2020
+   titlePanel("PsychTopics"), #v1.0.7   18.11.2021
   
      # Sidebar
    sidebarLayout(
@@ -279,7 +279,7 @@ server <- function(input, output, session) {
   # transform invalid year input (popular topics)
   finalInputPop <- reactive({
     if (input$yearpop < 1980) return(1980)
-    if (input$yearpop > 2019) return(2019)
+    if (input$yearpop > 2020) return(2020)
     input$yearpop
   })
   
